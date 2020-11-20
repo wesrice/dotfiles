@@ -1,4 +1,5 @@
 {
     "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
     "workbench.colorTheme": "One Dark Pro"
 }
