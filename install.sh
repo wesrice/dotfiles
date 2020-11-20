@@ -1,9 +1,9 @@
 ./zsh.sh
-./node.sh
+# ./node.sh
 
-./hyper.sh
-./slack.sh
+# ./hyper.sh
+# ./slack.sh
 ./vscode.sh
 
 source ~/.zshrc
-cat ~/.ssh/id_rsa.pub
+# cat ~/.ssh/id_rsa.pub
