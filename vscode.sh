@@ -21,4 +21,5 @@ do
 done   
 
 # Symlink settings
+mkdir -p /home/node/.config/Code/User 
 ln -sfn $PWD/vscode/settings.json $HOME/.config/Code/User/settings.json
