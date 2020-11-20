@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Install VSCode
-curl -L -o vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
-sudo apt install -y ./vscode.deb
-rm vscode.deb
+# curl -L -o vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+# sudo apt install -y ./vscode.deb
+# rm vscode.deb
 
 # Install extensions
 extensions=(
