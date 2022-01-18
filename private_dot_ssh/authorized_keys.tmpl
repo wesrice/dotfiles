@@ -1,0 +1,5 @@
+{{- if not .is_work -}}
+{{ range (gitHubKeys .github_username) -}}
+{{   .Key }}
+{{ end -}}
+{{- end -}}

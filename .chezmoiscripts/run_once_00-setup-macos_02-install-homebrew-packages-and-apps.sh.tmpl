@@ -1,0 +1,9 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing packages and apps..."
+sudo -v
+brew bundle --file {{ .chezmoi.sourceDir }}/Brewfile
+echo "Packages and apps installed!"
+
+{{- end -}}

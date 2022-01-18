@@ -1,0 +1,23 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+export DEBIAN_FRONTEND=noninteractive
+
+echo "Installing packages..."
+sudo apt-get update
+sudo apt-get -y install --no-install-recommends apt-utils dialog 2>&1
+sudo apt-get install -y \
+  curl \
+  dirmngr \
+  gawk \
+  git \
+  git-lfs \
+  gpg \
+  httpie \
+  zsh
+
+sudo apt-get autoremove -y
+sudo rm -rf /var/lib/apt/lists/*
+
+echo "Packages installed!"
+{{- end -}}

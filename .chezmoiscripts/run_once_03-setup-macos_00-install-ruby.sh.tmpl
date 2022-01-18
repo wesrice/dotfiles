@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing Ruby..."
+
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf install ruby latest:3
+
+echo "Ruby installed!"
+{{- end -}}

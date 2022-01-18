@@ -1,0 +1,10 @@
+[user]
+  name = {{- .name }}
+  email = {{- .email }}
+
+[core]
+{{- if .is_headless }}
+  editor = vim
+{{- else }}
+  editor = code --wait
+{{- end }}

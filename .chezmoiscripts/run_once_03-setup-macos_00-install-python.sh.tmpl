@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing Python..."
+
+asdf plugin add Python https://github.com/danhper/asdf-python.git
+asdf install python latest:3
+
+echo "Python installed!"
+{{- end -}}

@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing Java..."
+
+asdf plugin add java https://github.com/halcyon/asdf-java.git
+asdf install java latest:openjdk-17
+
+echo "Java installed!"
+{{- end -}}

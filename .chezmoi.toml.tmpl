@@ -1,0 +1,40 @@
+{{- $name := "Wes Rice" -}}
+{{- $email := "wes@wesrice.com" -}}
+{{- $github_username := "wesrice" -}}
+{{- $hostname := "" -}}
+{{- $is_work := false -}}
+{{- $is_ephemeral := false -}}
+{{- $is_headless := false -}}
+
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $hostname = output "scutil" "--get" "ComputerName" | trim -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "linux" -}}
+{{- $hostname = output "hostname" | trim -}}
+{{- end -}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{- $is_ephemeral = true -}}
+{{- end -}}
+
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+
+[data]
+{{- if $codespaces }}
+  name = "{{- $name }}"
+  email = "{{- $email }}"
+  github_username = "{{- $github_username }}"
+  hostname = "{{- $hostname }}"
+  is_work = false
+{{- else }}
+  name = {{ promptString "Name:" $name | quote }}
+  email = {{ promptString "Email:" $email | quote }}
+  github_username = {{ promptString "GitHub username:" $github_username | quote }}
+  hostname = {{ promptString "Hostname:" $hostname | quote }}
+  is_work = {{ promptBool "Is this a work machine?" false | quote }}
+{{- end }}
+
+  is_ephemeral = {{ $is_ephemeral }}
+  is_headless = {{ $is_headless }}

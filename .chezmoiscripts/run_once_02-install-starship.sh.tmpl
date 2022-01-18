@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "Installing and configuring Starship..."
+
+echo "Adding Starship plugin..."
+asdf plugin add starship https://github.com/grimoh/asdf-starship.git
+
+echo "Installing Starship..."
+asdf install starship latest:1
+
+echo "Starship installed!"

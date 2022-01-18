@@ -1,0 +1,6 @@
+Brewfile
+Brewfile.lock.json
+dot_editorconfig
+install.sh
+remote-install.sh
+vscode-settings.json

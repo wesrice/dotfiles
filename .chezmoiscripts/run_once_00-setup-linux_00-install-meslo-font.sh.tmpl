@@ -1,0 +1,17 @@
+{{- if (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+
+echo "Installing Meslo font..."
+fonts_dir="${HOME}/.local/share/fonts"
+
+if [[ ! -d "$fonts_dir" ]]; then
+  mkdir -p "$fonts_dir"
+fi
+
+zip_file="Meslo.zip"
+
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/${zip_file}"
+unzip "$zip_file" -d "$fonts_dir"
+rm "$zip_file"
+echo "Meslo font installed!"
+{{- end -}}

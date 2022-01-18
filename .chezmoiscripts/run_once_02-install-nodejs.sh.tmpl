@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo "Installing and configuring Node.js..."
+
+echo "Adding asdf plugin..."
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+
+echo "Installing Node..."
+asdf install nodejs lts
+
+echo "Installing global dependencies"
+npm install -g \
+  pnpm \
+  yarn \
+  zx
+
+echo "Node.js installed!"

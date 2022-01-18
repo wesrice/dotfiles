@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing Elixer..."
+
+asdf plugin add elixer https://github.com/asdf-vm/asdf-elixir.git
+asdf install elixer latest:1.13
+
+echo "Elixer installed!"
+{{- end -}}

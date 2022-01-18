@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing Clojure..."
+
+asdf plugin add clojure https://github.com/halcyon/asdf-clojure.git
+asdf install clojure latest:1.10
+
+echo "Clojure installed!"
+{{- end -}}

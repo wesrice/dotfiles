@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/usr/bin/env bash
+
+echo "Installing R..."
+
+asdf plugin add R https://github.com/asdf-community/asdf-r.git
+asdf install r latest:4
+
+echo "R installed!"
+{{- end -}}
