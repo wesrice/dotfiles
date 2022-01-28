@@ -3,7 +3,7 @@
 
 echo "Installing packages and apps..."
 sudo -v
-brew bundle --file {{ .chezmoi.sourceDir }}/Brewfile
+brew bundle --file ~/Brewfile
 echo "Packages and apps installed!"
 
 {{- end -}}

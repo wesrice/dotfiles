@@ -1,0 +1,55 @@
+{{ if (eq .chezmoi.os "darwin" "linux") -}}
+#!/usr/bin/env bash
+
+extensions=(
+  bierner.color-info
+  bradlc.vscode-tailwindcss
+  bungcip.better-toml
+  codespaces-contrib.codeswing
+  dbaeumer.vscode-eslint
+  eamodio.gitlens
+  editorconfig.editorconfig
+  GitHub.codespaces
+  golang.go
+  GraphQL.vscode-graphql
+  haskell.haskell
+  hediet.vscode-drawio
+  idleberg.applescript
+  jinliming2.vscode-go-template
+  johnpapa.vscode-peacock
+  mongodb.mongodb-vscode
+  ms-azuretools.vscode-docker
+  ms-python.python
+  ms-toolsai.jupyter
+  ms-vscode-remote.vscode-remote-extensionpack
+  ms-vsliveshare.vsliveshare-pack
+  redhat.vscode-yaml
+  richie5um2.vscode-sort-json
+  rust-lang.rust
+  sleistner.vscode-fileutils
+  streetsidesoftware.code-spell-checker
+  stylelint.vscode-stylelint
+  tyriar.sort-lines
+  VisualStudioExptTeam.vscodeintellicode
+  vscjava.vscode-java-debug
+  vscjava.vscode-java-pack
+  wix.vscode-import-cost
+  Zignd.html-css-class-completion
+)
+
+{{- if .is_work }}
+extensions+=(
+  atlassian.atlascode
+  esbenp.prettier-vscode
+  gitlab.gitlab-workflow
+  huuums.vscode-fast-folder-structure
+  sourcegraph.sourcegraph
+)
+{{- end }}
+
+for extension in ${extensions[@]}; do
+  code --force --install-extension $extension
+done
+
+echo "VSCode extensions installed!"
+{{ end }}

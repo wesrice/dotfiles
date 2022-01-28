@@ -1,0 +1,10 @@
+{
+  "allow_deprecated_flavors": false,
+  "auth_username": "wrice",
+  "cloudvm_api_url": "https://cloudvm-service.sandbox.indeed.net/",
+  "preferred_flavor": "m5.2xlarge",
+  "preferred_provider": "aws",
+  "preferred_region": "us-east-2",
+  "preferred_volume_size": "120",
+  "public_key_file": "/Users/wrice/.ssh/id_rsa.pub"
+}

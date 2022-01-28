@@ -1,0 +1,10 @@
+{{- if (and (eq .chezmoi.os "darwin") .is_personal) -}}
+#!/usr/bin/env bash
+
+echo "Installing MongoDB..."
+
+asdf plugin add mongodb https://github.com/sylph01/asdf-mongodb.git
+asdf install mongodb latest:5
+
+echo "MongoDB installed!"
+{{- end -}}

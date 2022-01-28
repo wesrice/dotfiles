@@ -12,6 +12,9 @@ brew 'git'
 brew 'git-lfs'
 brew 'gpg'
 brew 'httpie'
+brew 'jq'
+brew 'mas'
+brew 'openssl'
 brew 'svn'
 brew 'zsh-completions'
 
@@ -20,13 +23,19 @@ cask '1password-cli'
 cask 'alfred'
 cask 'appcleaner'
 cask 'bartender'
-cask 'docker'
+cask 'brave-browser'
+cask 'canon-eos-utility'
+cask 'elgato-control-center'
+cask 'elgato-stream-deck'
+cask 'elgato-wave-link'
 cask 'font-meslo-lg-nerd-font'
 cask 'firefox'
 cask 'iterm2'
 cask 'karabiner-elements'
 cask 'lastfm'
 cask 'logitech-camera-settings'
+cask 'logitech-options'
+cask 'moom'
 cask 'pandora'
 cask 'sonos'
 cask 'spotify'
@@ -34,11 +43,17 @@ cask 'the-unarchiver'
 cask 'visual-studio-code'
 cask 'xquartz'
 
-{{- if .is_work -}}
+{{- if .is_work }}
+cask 'figma'
 cask 'lastpass'
-{{- else -}}
+cask 'miro'
+cask 'opera'
+{{- else }}
+cask 'docker'
 cask 'google-chrome'
 cask 'slack'
 cask 'webull'
 cask 'zoom'
-{{- end -}}
+{{- end }}
+
+mas install 1191449274

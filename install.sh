@@ -24,7 +24,9 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 echo "asdf installed!"
 
 "$chezmoi" init wesrice
-"$chezmoi" apply "$HOME/.bashrc"
-source ~/.bashrc
+# "$chezmoi" apply "$HOME/.bashrc"
+# source ~/.bashrc
 
-exec "$chezmoi" apply
+"$chezmoi" apply
+
+$("$chezmoi" source-path)/install-vscode-extensions.sh

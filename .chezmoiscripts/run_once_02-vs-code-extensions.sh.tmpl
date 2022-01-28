@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+{{- $script := joinPath .chezmoi.sourceDir ".chezmoitemplates/install-vscode-extensions.sh.tmpl" -}}
+
+# hash: {{- include $script | sha256sum }}
+{{- template "install-vscode-extensions.sh.tmpl" . }}

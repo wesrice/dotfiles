@@ -1,0 +1,12 @@
+{{- if .is_personal }}
+[user]
+  name = {{- .name }}
+  email = {{- .email }}
+{{- end }}
+
+[core]
+{{- if .is_cvm }}
+  editor = vim
+{{- else }}
+  editor = code --wait
+{{- end }}

@@ -1,8 +1,17 @@
 {{- if eq .chezmoi.os "darwin" -}}
 Host *
+  IgnoreUnknown AddKeysToAgent,UseKeychain
   AddKeysToAgent yes
   UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
 {{- end }}
 
 Host github.com
   User git
+
+{{- if .is_work }}
+Host cvm
+  Hostname wrice.cvm.indeed.net
+  User wrice
+  ForwardAgent yes
+{{- end }}
