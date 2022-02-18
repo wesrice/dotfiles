@@ -1,0 +1,34 @@
+#=======================================BOXY==============================================
+# In this file you can put any custom environment variable you need
+# for more details visit https://wiki.indeed.com/x/j4kdDg
+#=======================================BOXY==============================================
+
+{{- $office := "" -}}
+{{- $home := env "HOME" -}}
+
+{{- if and .is_work .is_cvm }}
+{{- $office = "cvm" }}
+{{- end }}
+
+{{- if (and .is_work (not .is_cvm)) }}
+{{- $office = "seaoff" }}
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+. $(brew --prefix asdf)/asdf.sh
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+. $HOME/.asdf/asdf.sh
+{{- end }}
+
+export INDEED_GLOBAL_DIR={{- $home -}}/indeed
+export INDEED_OFFICE={{- $office }}
+export INDEED_TEAMS='resume'
+export INDEED_ANSIBLE_MANAGED=1
+export HOSTNAME_SUFFIX=
+export INSTALL_JETBRAINS_TOOLBOX=1
+export INSTALL_SOURCEGRAPH_CLI=1
+export PERL_CPANM_HOME={{- $home -}}/.cpanm
+export PERL5LIB={{- $home -}}/indeed/perl5/lib/perl5
+export INDEED_HOMEBREW_MIRROR=0

@@ -1,0 +1,4 @@
+CURRENT_SHELL=$(ps -cp "$$" -o command="")
+if [[ $CURRENT_SHELL == *zsh ]]; then
+{{ template "zshrc.tmpl" . }}
+fi

@@ -1,0 +1,9 @@
+{{- if (and .is_work (not .is_cvm)) -}}
+#!/usr/bin/env bash
+
+echo "Installing work environment..."
+sudo -v
+curl -L https://boxy.sandbox.indeed.net/bootstrap > /tmp/system-setup
+bash /tmp/system-setup
+echo "Work environment installed!"
+{{- end -}}

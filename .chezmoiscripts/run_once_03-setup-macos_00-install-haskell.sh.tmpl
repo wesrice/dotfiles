@@ -1,4 +1,4 @@
-{{- if (eq .chezmoi.os "darwin") -}}
+{{- if (and (eq .chezmoi.os "darwin") .is_personal) -}}
 #!/usr/bin/env bash
 
 echo "Installing Haskell..."

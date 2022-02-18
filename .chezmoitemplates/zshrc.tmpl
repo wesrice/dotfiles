@@ -99,8 +99,20 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zource="source ~/.zshrc"
-alias zshconfig="code ~/.zshrc"
+
+{{- if eq .chezmoi.os "darwin" }}
+. $(brew --prefix asdf)/asdf.sh
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+. $HOME/.asdf/asdf.sh
+{{- end }}
+
+{{- if .is_work }}
+{{ template "zshaliases.tmpl" . }}
+alias zource="chezmoi apply && source ~/.zshrc"
+{{- end }}
+
+alias zshconfig="$EDITOR \"$(chezmoi source-path)/.chezmoitemplates/zshrc\""
 
 eval "$(starship init zsh)"

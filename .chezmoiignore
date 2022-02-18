@@ -1,6 +1,35 @@
-Brewfile
-Brewfile.lock.json
-dot_editorconfig
+{{- if not .is_codespace }}
+  dot_vscode-remote
+{{ end }}
+
+{{- if not .is_work }}
+  env/
+{{- end }}
+
+{{- if .is_work }}
+  .bashrc
+  .gitconfig
+  .hushlogin
+  .ssh
+  .zshrc
+{{- end }}
+
+{{- if .is_cvm }}
+  .tool-versions
+{{- end }}
+
+{{- if not .is_work }}
+  .cloudvm/config.json
+{{- end }}
+
+{{- if ne .chezmoi.os "darwin" }}
+  Brewfile
+  .config/iterm2/
+  .config/karabiner/
+{{- end }}
+
+.gitignore
 install.sh
 remote-install.sh
 vscode-settings.json
+README.md

@@ -1,0 +1,10 @@
+{{- if (and (eq .chezmoi.os "darwin") .is_personal) -}}
+#!/usr/bin/env bash
+
+echo "Installing MySQL..."
+
+asdf plugin add mysql https://github.com/iroddis/asdf-mysql.git
+asdf install mysql latest:8
+
+echo "MySQL installed!"
+{{- end -}}

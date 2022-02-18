@@ -1,19 +1,73 @@
 {
-  "files.associations": {
-    "*.strings": "plist"
+  "[applescript]": {
+    "files.encoding": "utf16le"
+  },
+  "atlascode.jira.jqlList": [
+    {
+      "enabled": true,
+      "id": "c571e5a3-f544-4f81-abca-0a6a96e7cc1d",
+      "monitor": true,
+      "name": "My Open Issues",
+      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY updated DESC",
+      "siteId": "bugs.indeed.com"
+    }
+  ],
+  "atlascode.jira.startWorkBranchTemplate.customTemplate": "jira/{{{issueKey}}}",
+  "bracket-pair-colorizer-2.colors": [
+    "#e5c07b",
+    "#c678dd",
+    "#61afef"
+  ],
+  "cSpell.userWords": [
+    "camelcase"
+  ],
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
   "editor.fontSize": 18,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.guides.highlightActiveIndentation": true,
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     80
   ],
-  "terminal.integrated.shell.linux": "zsh",
-  "terminal.integrated.shell.osx": "zsh",
+  "editor.suggestSelection": "first",
+  "eslint.validate": [
+    "javascript"
+  ],
+  "files.associations": {
+    "*.strings": "plist"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "markdown.extension.preview.autoShowPreviewToSide": true,
+  "markdown.extension.print.theme": "dark",
+  "peacock.affectActivityBar": false,
+  "peacock.elementAdjustments": {
+    "activeBorder": "none",
+    "activityBar": "lighten"
+  },
+  "peacock.lightForegroundColor": "#fff",
+  "peacock.remoteColor": "#1963f2",
+  "redhat.telemetry.enabled": false,
+  "sourcegraph.url": "https://sourcegraph.indeed.tech/",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.fontFamily": "MesloLGL Nerd Font Mono, Menlo",
   "terminal.integrated.fontSize": 14,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 1,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.editorAssociations": {
     "*.plist": "default"
+  },
+  "yaml.schemas": {
+    "file:///Users/wrice/.vscode/extensions/atlassian.atlascode-2.10.9/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   }
 }
