@@ -1,5 +1,5 @@
 {{- if (eq .chezmoi.os "darwin") -}}
-#!/usr/bin bash
+#!{{ lookPath "bash" }}
 
 if command -v xcode-select &> /dev/null; then
   echo "Xcode already installed, skipping."

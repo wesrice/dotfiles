@@ -1,5 +1,5 @@
 {{- if (and (eq .chezmoi.os "darwin") .is_personal) -}}
-#!/usr/bin bash
+#!{{ lookPath "bash" }}
 
 echo "Installing Elixer..."
 

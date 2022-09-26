@@ -1,5 +1,5 @@
 {{- if (eq .chezmoi.os "darwin") -}}
-#!/usr/bin bash
+#!{{ lookPath "bash" }}
 
 echo "Installing packages and apps..."
 sudo -v

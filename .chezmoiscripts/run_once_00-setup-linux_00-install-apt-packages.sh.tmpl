@@ -1,5 +1,5 @@
 {{- if (eq .chezmoi.os "linux") -}}
-#!/usr/bin bash
+#!{{ lookPath "bash" }}
 
 export DEBIAN_FRONTEND=noninteractive
 

@@ -1,32 +1,33 @@
-#!/usr/bin bash
+#!/bin/bash
 
-set -e # -e: exit on error
+# Install remotely from single shell command
+# Usage : curl https://raw.githubusercontent.com/wesrice/dotfiles/main/install.sh | bash
 
-if [ ! "$(command -v chezmoi)" ]; then
-  bin_dir="$HOME/.local/bin"
-  chezmoi="$bin_dir/chezmoi"
-  if [ "$(command -v curl)" ]; then
-    sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b "$bin_dir"
-  elif [ "$(command -v wget)" ]; then
-    sh -c "$(wget -qO- https://chezmoi.io/get)" -- -b "$bin_dir"
-  else
-    echo "To install chezmoi, you must have curl or wget installed." >&2
-    exit 1
-  fi
+set -e
+
+# Install core dependencies
+if [ "$(uname -s)" == "Darwin" ]; then
+  # xcode-select --install
+  echo "mac os"
 else
-  chezmoi=chezmoi
+  sudo apt install curl git -y
 fi
 
-export DEBIAN_FRONTEND=noninteractive
+# Install asdf
+rm -rf $HOME/.asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
 
-echo "Installing asdf..."
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
-echo "asdf installed!"
+. $HOME/.asdf/asdf.sh
 
-"$chezmoi" init wesrice
-# "$chezmoi" apply "$HOME/.bashrc"
-# source ~/.bashrc
+if [ -d "$HOME/.local/share/chezmoi" ]; then
+  rm -rf $HOME/.local/share/chezmoi
+fi
 
-"$chezmoi" apply
+asdf plugin add chezmoi https://github.com/joke/asdf-chezmoi.git
+asdf install chezmoi 2.23.0
+asdf shell chezmoi 2.23.0
 
-$("$chezmoi" source-path)/install-vscode-extensions.sh
+asdf plugin add starship
+asdf install starship 1.10.3
+
+chezmoi init --apply wesrice
