@@ -1,5 +1,5 @@
 {{- if (eq .chezmoi.os "darwin") -}}
-#!/usr/bin/env bash
+#!/usr/bin bash
 
 if command -v brew >/dev/null 2>&1; then
   echo "Homebrew already installed, skipping."

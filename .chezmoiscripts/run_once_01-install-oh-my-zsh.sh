@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin bash
 
 echo "Installing oh-my-zsh..."
 if [ ! -d ~/.oh-my-zsh ]; then

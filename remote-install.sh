@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin bash
 
 # Install remotely from single shell command
 # Usage : curl https://raw.githubusercontent.com/wesrice/dotfiles/main/remote-install.sh | bash
