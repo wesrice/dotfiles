@@ -19,12 +19,11 @@ if [ ! -d "$HOME/.asdf" ]; then
 fi
 
 . $HOME/.asdf/asdf.sh
-asdf plugin remove chezmoi
+
 asdf plugin add chezmoi https://github.com/joke/asdf-chezmoi.git
 asdf install chezmoi 2.23.0
 asdf shell chezmoi 2.23.0
 
-asdf plugin remove starship
 asdf plugin add starship
 asdf install starship 1.10.3
 
