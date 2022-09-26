@@ -3,26 +3,26 @@
 # Install remotely from single shell command
 # Usage : sh -c "$(curl -fsSL https://raw.githubusercontent.com/wesrice/dotfiles/remote-install.sh)"
 
-echo "Installing Xcode Command Line Tools"
-xcode-select --install
+set -e
 
-set -e # -e: exit on error
-
-if [ ! "$(command -v chezmoi)" ]; then
-  bin_dir="/usr/local/bin"
-  sudo mkdir -p -m 775 $bin_dir
-  chezmoi="$bin_dir/chezmoi"
-  if [ "$(command -v curl)" ]; then
-    sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
-  elif [ "$(command -v wget)" ]; then
-    sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
-  else
-    echo "To install chezmoi, you must have curl or wget installed." >&2
-    exit 1
-  fi
+# Install core dependencies
+if [ "$(uname -s)" == "Darwin" ]; then
+  # xcode-select --install
+  echo "mac os"
 else
-  chezmoi=chezmoi
+  sudo apt install curl git -y
 fi
 
-# exec: replace current process with chezmoi init
-exec "$chezmoi" init --apply wesrice
+# Install asdf
+if [ ! -d "$HOME/.asdf" ]; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+fi
+
+. $HOME/.asdf/asdf.sh
+asdf plugin add chezmoi https://github.com/joke/asdf-chezmoi.git
+asdf install chezmoi latest
+
+asdf plugin add starship
+asdf install starship latest
+
+chezmoi init --apply wesrice

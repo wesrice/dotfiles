@@ -100,13 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-{{- if eq .chezmoi.os "darwin" }}
-. $(brew --prefix asdf)/asdf.sh
-{{- end }}
-
-{{- if eq .chezmoi.os "linux" }}
 . $HOME/.asdf/asdf.sh
-{{- end }}
 
 {{- if .is_work }}
 {{ template "zshaliases.tmpl" . }}

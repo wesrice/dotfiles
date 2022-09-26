@@ -14,13 +14,7 @@
 {{- $office = "seaoff" }}
 {{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
-. $(brew --prefix asdf)/asdf.sh
-{{- end }}
-
-{{- if eq .chezmoi.os "linux" }}
 . $HOME/.asdf/asdf.sh
-{{- end }}
 
 export INDEED_GLOBAL_DIR={{- $home -}}/indeed
 export INDEED_OFFICE={{- $office }}
