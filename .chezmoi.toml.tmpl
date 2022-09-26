@@ -9,6 +9,7 @@
 {{- $is_codespace := env "CODESPACES" | not | not -}}
 
 [data]
+  scriptTempDir = "~/tmp"
   name = "{{- $name }}"
   github_username = "{{- $github_username }}"
   is_work = {{- $is_work }}

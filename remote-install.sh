@@ -1,7 +1,7 @@
 #!/usr/bin bash
 
 # Install remotely from single shell command
-# Usage : curl https://raw.githubusercontent.com/wesrice/dotfiles/main/remote-install.sh | bash
+# Usage : curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/wesrice/dotfiles/main/remote-install.sh | bash
 
 set -e
 
