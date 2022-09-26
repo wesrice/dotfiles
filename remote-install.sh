@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install remotely from single shell command
-# Usage : sh -c "$(curl -fsSL https://raw.githubusercontent.com/wesrice/dotfiles/remote-install.sh)"
+# Usage : curl https://raw.githubusercontent.com/wesrice/dotfiles/main/remote-install.sh | bash
 
 set -e
 
@@ -20,9 +20,9 @@ fi
 
 . $HOME/.asdf/asdf.sh
 asdf plugin add chezmoi https://github.com/joke/asdf-chezmoi.git
-asdf install chezmoi latest
+asdf install chezmoi 2.23.0
 
 asdf plugin add starship
-asdf install starship latest
+asdf install starship 1.10.3
 
 chezmoi init --apply wesrice
