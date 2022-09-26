@@ -14,11 +14,14 @@ else
 fi
 
 # Install asdf
-if [ ! -d "$HOME/.asdf" ]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-fi
+rm -rf $HOME/.asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
 
 . $HOME/.asdf/asdf.sh
+
+if [ -d "$HOME/.local/share/chezmoi" ]; then
+  rm -rf $HOME/.local/share/chezmoi
+fi
 
 asdf plugin add chezmoi https://github.com/joke/asdf-chezmoi.git
 asdf install chezmoi 2.23.0
