@@ -105,8 +105,21 @@ source $ZSH/oh-my-zsh.sh
 {{- if .is_work }}
 {{ template "zshaliases.tmpl" . }}
 alias zource="chezmoi apply && source ~/.zshrc"
+. "/Users/wrice/.indeed-kube-profile"
 {{- end }}
 
 alias zshconfig="$EDITOR \"$(chezmoi source-path)/.chezmoitemplates/zshrc\""
 
 eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/wrice/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+. ~/.asdf/plugins/java/set-java-home.zsh
